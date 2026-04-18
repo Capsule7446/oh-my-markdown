@@ -209,7 +209,7 @@ go fmt ./...
 go vet ./...
 
 # 运行项目
-go run main.go front-matter ./testdata
+go run main.go front-matter ./.test_data
 ```
 
 ### 快速测试流程

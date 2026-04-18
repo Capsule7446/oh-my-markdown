@@ -17,7 +17,7 @@ func TestParseFile(t *testing.T) {
 	}{
 		{
 			name:      "正常 YAML front matter 文件",
-			filePath:  "testdata/valid.md",
+			filePath:  ".test_data/valid.md",
 			wantErr:   false,
 			wantNil:   false,
 			wantUUID:  "550e8400-e29b-41d4-a716-446655440000",
@@ -25,25 +25,25 @@ func TestParseFile(t *testing.T) {
 		},
 		{
 			name:     "无 front matter 的文件",
-			filePath: "testdata/no-frontmatter.md",
+			filePath: ".test_data/no-frontmatter.md",
 			wantErr:  false,
 			wantNil:  true,
 		},
 		{
 			name:     "空文件",
-			filePath: "testdata/empty.md",
+			filePath: ".test_data/empty.md",
 			wantErr:  false,
 			wantNil:  true,
 		},
 		{
 			name:     "无效 YAML 格式",
-			filePath: "testdata/invalid-yaml.md",
+			filePath: ".test_data/invalid-yaml.md",
 			wantErr:  true,
 			wantNil:  true,
 		},
 		{
 			name:      "Windows 风格的换行符（\\r\\n）",
-			filePath:  "testdata/crlf.md",
+			filePath:  ".test_data/crlf.md",
 			wantErr:   false,
 			wantNil:   false,
 			wantUUID:  "770e8400-e29b-41d4-a716-446655440002",
@@ -95,8 +95,8 @@ func TestReadDir(t *testing.T) {
 		wantErrorCount int
 	}{
 		{
-			name:           "读取 testdata 目录（非递归）",
-			dir:            "testdata",
+			name:           "读取 .test_data 目录（非递归）",
+			dir:            ".test_data",
 			recursive:      false,
 			wantErr:        false,
 			wantCount:      2, // valid.md 和 crlf.md 有 front matter
@@ -107,8 +107,8 @@ func TestReadDir(t *testing.T) {
 			},
 		},
 		{
-			name:           "读取 testdata 目录（递归）",
-			dir:            "testdata",
+			name:           "读取 .test_data 目录（递归）",
+			dir:            ".test_data",
 			recursive:      true,
 			wantErr:        false,
 			wantCount:      3, // valid.md、crlf.md 和 subdir/nested.md

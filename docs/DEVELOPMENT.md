@@ -121,10 +121,10 @@ omm.exe --help
 go build -o omm.exe .
 
 # 运行项目
-omm.exe front-matter ./testdata
+omm.exe front-matter ./.test_data
 
 # 构建并运行
-go run main.go front-matter ./testdata
+go run main.go front-matter ./.test_data
 
 # 构建发布版本（Windows 64-bit，优化）
 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o omm.exe .
@@ -313,7 +313,7 @@ func TestParseFile(t *testing.T) {
     }{
         {
             name: "正常 YAML front matter 文件",
-            path: "testdata/valid.md",
+            path: ".test_data/valid.md",
             want: FrontMatter{
                 "uuid": "550e8400-e29b-41d4-a716-446655440000",
                 "title": "测试文章",
@@ -322,7 +322,7 @@ func TestParseFile(t *testing.T) {
         },
         {
             name: "无 front matter 的文件",
-            path: "testdata/no-frontmatter.md",
+            path: ".test_data/no-frontmatter.md",
             want: nil,
             wantErr: false,
         },
@@ -432,10 +432,10 @@ slog.Error("operation failed", "error", err)
 
 ```bash
 # 带参数运行，易于重复测试
-go run main.go front-matter ./testdata -o /tmp/output.json
+go run main.go front-matter ./.test_data -o /tmp/output.json
 
 # 带竞争条件检测
-go run -race main.go front-matter ./testdata
+go run -race main.go front-matter ./.test_data
 ```
 
 ### IDE 调试器（VS Code）
@@ -452,7 +452,7 @@ go run -race main.go front-matter ./testdata
       "mode": "local",
       "request": "launch",
       "program": "${workspaceFolder}",
-      "args": ["front-matter", "./testdata"]
+      "args": ["front-matter", "./.test_data"]
     }
   ]
 }
