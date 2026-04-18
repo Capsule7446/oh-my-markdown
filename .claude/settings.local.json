@@ -13,7 +13,8 @@
       "Bash(staticcheck *)",
       "Bash(go tool *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(./omm --help)"
     ]
   }
 }

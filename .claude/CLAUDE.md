@@ -63,6 +63,16 @@ gosec ./...
 golangci-lint run ./...
 ```
 
+### 打包（Windows）
+
+```bash
+# Build（开发用）
+go build -o omm.exe .
+
+# Build（发布用，裁剪调试符号，降低文件大小）
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o omm.exe .
+```
+
 ## 架构
 
 ### 目录结构
