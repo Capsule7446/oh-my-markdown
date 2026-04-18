@@ -1,4 +1,4 @@
-module oh-my-markdown
+module github.com/Capsule7446/oh-my-markdown
 
 go 1.25.0
 

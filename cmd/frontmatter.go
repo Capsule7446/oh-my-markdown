@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"log/slog"
-	"oh-my-markdown/internal/frontmatter"
 	"os"
 
 	"github.com/spf13/cobra"
+
+	"github.com/Capsule7446/oh-my-markdown/internal/frontmatter"
 )
 
 var frontMatterCmd = &cobra.Command{

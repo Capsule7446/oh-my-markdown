@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"oh-my-markdown/cmd"
+	"github.com/Capsule7446/oh-my-markdown/cmd"
 )
 
 func main() {

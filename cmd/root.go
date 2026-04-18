@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"oh-my-markdown/internal/logger"
+	"github.com/Capsule7446/oh-my-markdown/internal/logger"
 
 	"github.com/spf13/cobra"
 )
