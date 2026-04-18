@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(xargs -n1 basename)",
-      "Bash(grep -E \"\\\\.md$|\\\\.txt$|Makefile|Dockerfile\")"
+      "Bash(grep -E \"\\\\.md$|\\\\.txt$|Makefile|Dockerfile\")",
+      "Bash(go get *)",
+      "Bash(go mod *)",
+      "Bash(go test *)",
+      "Bash(go build *)",
+      "Bash(./omm front-matter *)",
+      "Bash(go vet *)",
+      "Bash(go fmt *)",
+      "Bash(staticcheck *)",
+      "Bash(go tool *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }

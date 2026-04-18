@@ -3,6 +3,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"oh-my-markdown/internal/frontmatter"
 	"os"
 
@@ -36,19 +37,25 @@ func runFrontMatter(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("failed to get recursive flag: %w", err)
 	}
 
+	// 记录开始读取
+	slog.Info("开始读取 front matter", "dir", dir, "recursive", recursive)
+
 	// 读取 front matter
 	result, err := frontmatter.ReadDir(dir, recursive)
 	if err != nil {
 		return fmt.Errorf("failed to read front matter: %w", err)
 	}
 
-	// 如果有文件级别的错误，输出到 stderr
+	// 如果有文件级别的错误，输出到日志
 	if len(result.Errors) > 0 {
-		fmt.Fprintf(os.Stderr, "警告：%d 个文件解析失败\n", len(result.Errors))
+		slog.Warn("解析失败", "count", len(result.Errors))
 		for _, errMsg := range result.Errors {
-			fmt.Fprintf(os.Stderr, "  - %s\n", errMsg)
+			slog.Warn("文件解析失败", "error", errMsg)
 		}
 	}
+
+	// 记录读取完成
+	slog.Info("读取完成", "count", len(result.Results), "errors", len(result.Errors))
 
 	// 序列化为 JSON
 	jsonData, err := json.MarshalIndent(result.Results, "", "  ")
