@@ -12,23 +12,23 @@ git clone https://github.com/yourusername/oh-my-markdown.git
 cd oh-my-markdown
 
 # 构建（Windows）
-go build -o omm.exe .
+go build -o oh-my-markdown.exe .
 
 # 验证安装
-omm.exe --help
+oh-my-markdown.exe --help
 ```
 
 ### 基本用法
 
 ```bash
 # 提取目录中的所有 front matter，输出到终端
-omm.exe front-matter ./docs
+oh-my-markdown.exe front-matter ./docs
 
 # 保存结果到文件
-omm.exe front-matter ./docs -o result.json
+oh-my-markdown.exe front-matter ./docs -o result.json
 
 # 仅处理顶级文件（不递归）
-omm.exe front-matter ./docs --recursive=false
+oh-my-markdown.exe front-matter ./docs --recursive=false
 ```
 
 ---
@@ -41,46 +41,46 @@ omm.exe front-matter ./docs --recursive=false
 
 #### 基本语法
 ```bash
-omm front-matter <directory> [flags]
+oh-my-markdown front-matter <directory> [flags]
 ```
 
 #### 快速示例
 
 | 需求 | 命令 |
 |------|------|
-| 提取当前目录下的所有 front matter | `omm.exe front-matter .` |
-| 提取 docs 文件夹的 front matter | `omm.exe front-matter ./docs` |
-| 保存到指定文件 | `omm.exe front-matter ./docs -o output.json` |
-| 仅处理顶级文件 | `omm.exe front-matter ./docs -r false` |
-| 查看帮助信息 | `omm.exe front-matter --help` |
+| 提取当前目录下的所有 front matter | `oh-my-markdown.exe front-matter .` |
+| 提取 docs 文件夹的 front matter | `oh-my-markdown.exe front-matter ./docs` |
+| 保存到指定文件 | `oh-my-markdown.exe front-matter ./docs -o output.json` |
+| 仅处理顶级文件 | `oh-my-markdown.exe front-matter ./docs -r false` |
+| 查看帮助信息 | `oh-my-markdown.exe front-matter --help` |
 
 #### 标志详解
 
 **`--output` / `-o`**
 ```bash
 # 输出到文件
-omm.exe front-matter ./docs -o result.json
+oh-my-markdown.exe front-matter ./docs -o result.json
 
 # 输出到标准输出（默认）
-omm.exe front-matter ./docs
+oh-my-markdown.exe front-matter ./docs
 
 # 也可以使用长形式
-omm.exe front-matter ./docs --output=result.json
+oh-my-markdown.exe front-matter ./docs --output=result.json
 ```
 
 **`--recursive` / `-r`**
 ```bash
 # 递归遍历所有子目录（默认）
-omm.exe front-matter ./docs
+oh-my-markdown.exe front-matter ./docs
 
 # 等价于
-omm.exe front-matter ./docs -r true
+oh-my-markdown.exe front-matter ./docs -r true
 
 # 仅处理顶级目录
-omm.exe front-matter ./docs -r false
+oh-my-markdown.exe front-matter ./docs -r false
 
 # 或
-omm.exe front-matter ./docs --recursive=false
+oh-my-markdown.exe front-matter ./docs --recursive=false
 ```
 
 #### 输出示例
@@ -104,7 +104,7 @@ tags:
 
 **命令**:
 ```bash
-omm.exe front-matter ./docs
+oh-my-markdown.exe front-matter ./docs
 ```
 
 **输出** (JSON):
@@ -139,7 +139,7 @@ blog/
     └── article3.md
 
 # 提取所有 front matter
-omm.exe front-matter ./blog -o frontmatters.json
+oh-my-markdown.exe front-matter ./blog -o frontmatters.json
 
 # 查看结果
 type frontmatters.json
@@ -149,7 +149,7 @@ type frontmatters.json
 
 ```bash
 # 仅处理 blog 目录下的一级文件（不进入子文件夹）
-omm.exe front-matter ./blog --recursive=false
+oh-my-markdown.exe front-matter ./blog --recursive=false
 
 # 输出：仅包含 blog/ 目录下的 .md 文件的 front matter
 ```
@@ -158,7 +158,7 @@ omm.exe front-matter ./blog --recursive=false
 
 ```bash
 # 提取并使用 jq 过滤特定字段（需要安装 jq）
-omm.exe front-matter ./docs | jq '.[].title'
+oh-my-markdown.exe front-matter ./docs | jq '.[].title'
 
 # 输出：
 # "Go 语言入门"
@@ -166,7 +166,7 @@ omm.exe front-matter ./docs | jq '.[].title'
 # ...
 
 # 统计 front matter 数量
-omm.exe front-matter ./docs | jq 'length'
+oh-my-markdown.exe front-matter ./docs | jq 'length'
 
 # 输出：
 # 42
@@ -190,7 +190,7 @@ go mod download
 go test -race ./...
 
 # 4. 构建项目
-go build -o omm.exe .
+go build -o oh-my-markdown.exe .
 ```
 
 ### 日常开发
@@ -216,7 +216,7 @@ go run main.go front-matter ./.test_data
 
 ```bash
 # 一行命令完整检查
-go fmt ./... && go vet ./... && go test -race ./... && go build -o omm.exe .
+go fmt ./... && go vet ./... && go test -race ./... && go build -o oh-my-markdown.exe .
 ```
 
 ---
@@ -225,9 +225,9 @@ go fmt ./... && go vet ./... && go test -race ./... && go build -o omm.exe .
 
 ### Q: 如何查看日志？
 
-**A:** 日志存储在 `{TempDir}/omm/omm.log`
+**A:** 日志存储在 `{TempDir}/oh-my-markdown/oh-my-markdown.log`
 
-**Windows 日志位置**：`C:\Users\<YourUsername>\AppData\Local\Temp\omm\omm.log`
+**Windows 日志位置**：`C:\Users\<YourUsername>\AppData\Local\Temp\oh-my-markdown\oh-my-markdown.log`
 
 使用记事本或任何文本编辑器打开此文件即可查看。
 
@@ -245,7 +245,7 @@ go fmt ./... && go vet ./... && go test -race ./... && go build -o omm.exe .
 
 ```bash
 # 这个命令可以正确处理中文
-./omm front-matter ./chinese-docs -o output.json
+./oh-my-markdown front-matter ./chinese-docs -o output.json
 ```
 
 ### Q: 文件很多时需要多久？
@@ -260,7 +260,7 @@ go fmt ./... && go vet ./... && go test -race ./... && go build -o omm.exe .
 **A:** 使用 `--recursive=false` 标志
 
 ```bash
-./omm front-matter ./docs --recursive=false
+./oh-my-markdown front-matter ./docs --recursive=false
 ```
 
 ### Q: 输出文件已存在，会覆盖吗？
@@ -269,7 +269,7 @@ go fmt ./... && go vet ./... && go test -race ./... && go build -o omm.exe .
 
 ```bash
 # 安全做法：使用时间戳
-./omm front-matter ./docs -o "output_$(date +%Y%m%d_%H%M%S).json"
+./oh-my-markdown front-matter ./docs -o "output_$(date +%Y%m%d_%H%M%S).json"
 ```
 
 ---
@@ -279,8 +279,8 @@ go fmt ./... && go vet ./... && go test -race ./... && go build -o omm.exe .
 ### 构建和运行
 
 ```bash
-go build -o omm.exe .                          # 构建（Windows）
-omm.exe front-matter ./docs                    # 运行
+go build -o oh-my-markdown.exe .                          # 构建（Windows）
+oh-my-markdown.exe front-matter ./docs                    # 运行
 go run main.go front-matter ./docs             # 直接运行（无需构建）
 ```
 
@@ -328,7 +328,7 @@ go clean -cache
 go mod download
 
 # 重新构建
-go build -o omm .
+go build -o oh-my-markdown .
 ```
 
 ### 问题：找不到文件
@@ -336,8 +336,8 @@ go build -o omm .
 **解决**：
 ```bash
 # 确保路径正确
-./omm front-matter ./docs          # 相对路径
-./omm front-matter /absolute/path  # 绝对路径
+./oh-my-markdown front-matter ./docs          # 相对路径
+./oh-my-markdown front-matter /absolute/path  # 绝对路径
 
 # 检查文件是否存在
 ls -la ./docs
@@ -359,7 +359,7 @@ dir /b ./docs
 where /R ./docs *.md
 
 # 运行工具时添加调试信息
-omm.exe front-matter ./docs
+oh-my-markdown.exe front-matter ./docs
 ```
 
 ---
@@ -377,19 +377,19 @@ omm.exe front-matter ./docs
 
 ```bash
 # 查看基本帮助
-omm.exe --help
+oh-my-markdown.exe --help
 
 # 查看 front-matter 命令的帮助
-omm.exe front-matter --help
+oh-my-markdown.exe front-matter --help
 
 # 查看特定标志的帮助
-omm.exe front-matter -h
+oh-my-markdown.exe front-matter -h
 ```
 
 ---
 
-**提示**：将 `omm.exe` 添加到 Windows PATH，使其可从任何目录运行
+**提示**：将 `oh-my-markdown.exe` 添加到 Windows PATH，使其可从任何目录运行
 
-1. 将 `omm.exe` 复制到某个目录，如 `C:\tools\`
+1. 将 `oh-my-markdown.exe` 复制到某个目录，如 `C:\tools\`
 2. 添加该目录到 Windows PATH 环境变量
-3. 然后在任何目录下可以直接运行 `omm.exe`
+3. 然后在任何目录下可以直接运行 `oh-my-markdown.exe`

@@ -1,4 +1,4 @@
-# oh-my-markdown (omm)
+# oh-my-markdown
 
 一个高效的 Go CLI 工具，用于批量处理 Markdown 文件。该工具采用 Cobra 框架构建，提供强大的文件处理能力，特别是对 Markdown 文件的 front matter 提取和处理。
 
@@ -26,10 +26,10 @@ git clone https://github.com/yourusername/oh-my-markdown.git
 cd oh-my-markdown
 
 # 构建项目
-go build -o omm.exe .
+go build -o oh-my-markdown.exe .
 
 # 验证安装
-./omm.exe --help
+./oh-my-markdown.exe --help
 ```
 
 ## 快速开始
@@ -38,10 +38,10 @@ go build -o omm.exe .
 
 ```bash
 # 查看帮助信息
-omm.exe --help
+oh-my-markdown.exe --help
 
 # 运行具体命令
-omm.exe front-matter ./path/to/markdown/files
+oh-my-markdown.exe front-matter ./path/to/markdown/files
 ```
 
 ### Front Matter 命令
@@ -51,7 +51,7 @@ omm.exe front-matter ./path/to/markdown/files
 #### 基本语法
 
 ```bash
-omm front-matter <directory> [flags]
+oh-my-markdown front-matter <directory> [flags]
 ```
 
 #### 参数
@@ -70,7 +70,7 @@ omm front-matter <directory> [flags]
 **示例 1：读取目录中的所有 front matter 并输出到标准输出**
 
 ```bash
-omm.exe front-matter ./docs
+oh-my-markdown.exe front-matter ./docs
 ```
 
 输出（JSON 格式）：
@@ -91,19 +91,19 @@ omm.exe front-matter ./docs
 **示例 2：读取目录中的 front matter 并保存到文件**
 
 ```bash
-omm.exe front-matter ./docs -o ./output.json
+oh-my-markdown.exe front-matter ./docs -o ./output.json
 ```
 
 **示例 3：仅读取顶级目录中的文件（不递归）**
 
 ```bash
-omm.exe front-matter ./docs --recursive=false
+oh-my-markdown.exe front-matter ./docs --recursive=false
 ```
 
 **示例 4：组合多个标志**
 
 ```bash
-omm.exe front-matter ./docs -r=false -o ./frontmatters.json
+oh-my-markdown.exe front-matter ./docs -r=false -o ./frontmatters.json
 ```
 
 ## 开发指南
@@ -159,7 +159,7 @@ oh-my-markdown/
 
 - **`logger.go`**：日志初始化和管理
   - 使用 `slog` 作为日志系统
-  - 日志存储在 `{TempDir}/omm/omm.log`
+  - 日志存储在 `{TempDir}/oh-my-markdown/oh-my-markdown.log`
   - 自动轮转：5 天后删除、gzip 压缩
   - `Init()` 函数在应用启动时调用
   - `Dir()` 函数返回日志目录路径
@@ -169,7 +169,7 @@ oh-my-markdown/
 #### 构建项目
 
 ```bash
-go build -o omm .
+go build -o oh-my-markdown .
 ```
 
 #### 运行所有测试
@@ -276,7 +276,7 @@ if err != nil {
 
 应用的日志配置位于 `internal/logger/logger.go`：
 
-- **日志位置**：`{TempDir}/omm/omm.log`
+- **日志位置**：`{TempDir}/oh-my-markdown/oh-my-markdown.log`
 - **日志级别**：DEBUG
 - **日志格式**：JSON
 - **轮转策略**：
@@ -288,7 +288,7 @@ if err != nil {
 
 ```bash
 # Windows
-# 日志位置：C:\Users\<YourUsername>\AppData\Local\Temp\omm\omm.log
+# 日志位置：C:\Users\<YourUsername>\AppData\Local\Temp\oh-my-markdown\oh-my-markdown.log
 ```
 
 ## 常见问题
@@ -313,7 +313,7 @@ if err != nil {
 
 ```bash
 # 仅限 Windows 64-bit 平台
-GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o omm.exe .
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o oh-my-markdown.exe .
 ```
 
 ## 贡献指南

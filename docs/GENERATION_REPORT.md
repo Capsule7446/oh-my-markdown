@@ -2,7 +2,7 @@
 
 **生成时间**：2026-04-18  
 **生成工具**：Claude Code - 文档及代码映射专家  
-**项目**：oh-my-markdown (omm) - Go CLI 工具  
+**项目**：oh-my-markdown - Go CLI 工具  
 **语言**：Go 1.25.0+
 
 ---
@@ -322,9 +322,9 @@
 
 **项目构建**：
 ```
-✅ go build -o omm . 成功
-✅ ./omm --help 正常工作
-✅ ./omm front-matter ./testdata 正常工作
+✅ go build -o oh-my-markdown . 成功
+✅ ./oh-my-markdown --help 正常工作
+✅ ./oh-my-markdown front-matter ./testdata 正常工作
 ```
 
 **项目测试**：

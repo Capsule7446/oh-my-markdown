@@ -36,7 +36,7 @@ func TestInit(t *testing.T) {
 				}
 
 				// 验证日志文件存在
-				logFile := filepath.Join(Dir(), "omm.log")
+				logFile := filepath.Join(Dir(), "oh-my-markdown.log")
 				if _, err := os.Stat(logFile); err != nil {
 					t.Errorf("Init() 日志文件不存在: %s", logFile)
 				}
@@ -65,13 +65,13 @@ func TestInit(t *testing.T) {
 func TestDir(t *testing.T) {
 	dir := Dir()
 
-	// 验证路径包含 omm 子目录
+	// 验证路径包含 oh-my-markdown 子目录
 	if !filepath.HasPrefix(dir, os.TempDir()) {
 		t.Errorf("Dir() 路径不在临时目录中: %s", dir)
 	}
 
-	// 验证路径以 omm 结尾（目录名）
-	if filepath.Base(dir) != "omm" {
-		t.Errorf("Dir() 路径不以 omm 结尾: %s", dir)
+	// 验证路径以 oh-my-markdown 结尾（目录名）
+	if filepath.Base(dir) != "oh-my-markdown" {
+		t.Errorf("Dir() 路径不以 oh-my-markdown 结尾: %s", dir)
 	}
 }

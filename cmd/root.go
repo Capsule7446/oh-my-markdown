@@ -7,10 +7,10 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:              "omm",
-	Short:            "批次處理 Markdown 的工具",
-	SilenceErrors:    true,
-	SilenceUsage:     true,
+	Use:               "oh-my-markdown",
+	Short:             "批次處理 Markdown 的工具",
+	SilenceErrors:     true,
+	SilenceUsage:      true,
 	PersistentPreRunE: initLogger,
 }
 

@@ -3,7 +3,7 @@
 *.dll
 *.so
 *.dylib
-omm
+oh-my-markdown
 
 # Test & Coverage
 *.test

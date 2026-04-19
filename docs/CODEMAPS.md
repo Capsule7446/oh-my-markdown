@@ -45,7 +45,7 @@ main.go
 **关键代码**：
 ```go
 var rootCmd = &cobra.Command{
-    Use:              "omm",
+    Use:              "oh-my-markdown",
     Short:            "批次處理 Markdown 的工具",
     SilenceErrors:    true,        // 禁用自动错误输出
     SilenceUsage:     true,        // 隐藏使用帮助
@@ -362,13 +362,13 @@ func Dir() string         // 返回日志目录路径（供测试使用）
 
 ```
 1. 构建日志目录路径
-   └─> {TempDir}/omm
+   └─> {TempDir}/oh-my-markdown
    
 2. 创建目录（如不存在）
    └─> os.MkdirAll(logDir, 0755)
    
 3. 配置日志轮转器 (lumberjack.Logger)
-   ├─> Filename: {logDir}/omm.log
+   ├─> Filename: {logDir}/oh-my-markdown.log
    ├─> MaxAge: 5 天
    ├─> Compress: true (gzip)
    └─> MaxBackups: 0 (由 MaxAge 管理)
@@ -389,7 +389,7 @@ func Dir() string         // 返回日志目录路径（供测试使用）
 
 | 配置项 | 值 | 说明 |
 |--------|-----|------|
-| 日志位置 | `{TempDir}/omm/omm.log` | Unix: `/tmp/omm/omm.log`; Windows: `C:\...\Temp\omm\omm.log` |
+| 日志位置 | `{TempDir}/oh-my-markdown/oh-my-markdown.log` | Unix: `/tmp/oh-my-markdown/oh-my-markdown.log`; Windows: `C:\...\Temp\oh-my-markdown\oh-my-markdown.log` |
 | 日志格式 | JSON | 便于后续解析和分析 |
 | 日志级别 | DEBUG | 记录所有调试信息 |
 | 轮转周期 | 5 天 | 超过 5 天的日志自动删除 |
@@ -399,9 +399,9 @@ func Dir() string         // 返回日志目录路径（供测试使用）
 **关键代码**：
 ```go
 func Init() error {
-    logDir = filepath.Join(os.TempDir(), "omm")
+    logDir = filepath.Join(os.TempDir(), "oh-my-markdown")
     os.MkdirAll(logDir, 0755)
-    logPath := filepath.Join(logDir, "omm.log")
+    logPath := filepath.Join(logDir, "oh-my-markdown.log")
 
     lj := &lumberjack.Logger{
         Filename:   logPath,
@@ -438,7 +438,7 @@ slog.Debug("详细信息", "variable", value)
 ```go
 func Dir() string {
     if logDir == "" {
-        return filepath.Join(os.TempDir(), "omm")
+        return filepath.Join(os.TempDir(), "oh-my-markdown")
     }
     return logDir
 }
@@ -478,7 +478,7 @@ oh-my-markdown/
 
 ## 调用链路分析
 
-### 场景：用户执行 `omm front-matter ./docs -o output.json`
+### 场景：用户执行 `oh-my-markdown front-matter ./docs -o output.json`
 
 ```
 1. 启动

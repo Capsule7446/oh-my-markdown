@@ -10,7 +10,7 @@ markdown 操作。
 - **语言**：Go 1.25.0+
 - **入口点**：`main.go` → `cmd.Execute()`
 - **CLI 框架**：Cobra 1.10.2
-- **二进制名称**：`omm`（oh-my-markdown）
+- **二进制名称**：`oh-my-markdown`（oh-my-markdown）
 
 ## 项目规则
 
@@ -23,13 +23,13 @@ markdown 操作。
 ### 构建项目
 
 ```bash
-go build -o omm .
+go build -o oh-my-markdown .
 ```
 
 ### 运行工具
 
 ```bash
-./omm <command> [flags]
+./oh-my-markdown <command> [flags]
 ```
 
 ### 运行测试（表驱动测试）
@@ -67,10 +67,10 @@ golangci-lint run ./...
 
 ```bash
 # Build（开发用）
-go build -o omm.exe .
+go build -o oh-my-markdown.exe .
 
 # Build（发布用，裁剪调试符号，降低文件大小）
-GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o omm.exe .
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o oh-my-markdown.exe .
 ```
 
 ## 架构

@@ -159,7 +159,7 @@ runFrontMatter(cmd, args)
 **设计考虑**：
 ```go
 var rootCmd = &cobra.Command{
-    Use:              "omm",
+    Use:              "oh-my-markdown",
     Short:            "批次處理 Markdown 的工具",
     SilenceErrors:    true,     // 禁用自动错误输出
     SilenceUsage:     true,     // 隐藏使用说明
@@ -237,7 +237,7 @@ type ReadDirResult struct {
 
 ```go
 func Init() error {
-    1. 创建日志目录 {TempDir}/omm
+    1. 创建日志目录 {TempDir}/oh-my-markdown
     2. 配置 lumberjack 日志轮转器
        - MaxAge: 5 天后删除
        - Compress: 启用 gzip 压缩
@@ -251,7 +251,7 @@ func Init() error {
 **日志配置**：
 - **输出格式**：JSON
 - **日志级别**：DEBUG
-- **日志文件**：`{TempDir}/omm/omm.log`
+- **日志文件**：`{TempDir}/oh-my-markdown/oh-my-markdown.log`
 - **自动轮转**：5 天
 - **压缩**：启用 gzip
 
@@ -454,7 +454,7 @@ testdata/                   # 共享测试数据
 
 ### 日志目录权限
 
-- Linux/macOS：`/tmp/omm/`（或 `$TMPDIR/omm/`）
+- Linux/macOS：`/tmp/oh-my-markdown/`（或 `$TMPDIR/oh-my-markdown/`）
 - Windows：`C:\Users\<User>\AppData\Local\Temp\omm\`
 
 ## 相关文档

@@ -7,14 +7,17 @@
       "Bash(go mod *)",
       "Bash(go test *)",
       "Bash(go build *)",
-      "Bash(./omm front-matter *)",
+      "Bash(./oh-my-markdown front-matter *)",
       "Bash(go vet *)",
       "Bash(go fmt *)",
       "Bash(staticcheck *)",
       "Bash(go tool *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(./omm --help)"
+      "Bash(./oh-my-markdown --help)",
+      "Bash(git tag *)",
+      "Bash(git push *)",
+      "Bash(go env *)"
     ]
   }
 }

@@ -34,10 +34,10 @@ cd oh-my-markdown
 go mod download
 
 # 构建项目（Windows）
-go build -o omm.exe .
+go build -o oh-my-markdown.exe .
 
 # 验证构建成功
-omm.exe --help
+oh-my-markdown.exe --help
 ```
 
 ### IDE 配置（VS Code）
@@ -118,16 +118,16 @@ omm.exe --help
 
 ```bash
 # 构建项目（Windows）
-go build -o omm.exe .
+go build -o oh-my-markdown.exe .
 
 # 运行项目
-omm.exe front-matter ./.test_data
+oh-my-markdown.exe front-matter ./.test_data
 
 # 构建并运行
 go run main.go front-matter ./.test_data
 
 # 构建发布版本（Windows 64-bit，优化）
-GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o omm.exe .
+GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o oh-my-markdown.exe .
 ```
 
 ### 运行测试
@@ -412,7 +412,7 @@ go test -cover ./internal/frontmatter
 
 ```bash
 # Windows：日志位置
-# C:\Users\<User>\AppData\Local\Temp\omm\omm.log
+# C:\Users\<User>\AppData\Local\Temp\oh-my-markdown\oh-my-markdown.log
 
 # 使用记事本或文本编辑器打开日志文件查看
 ```
